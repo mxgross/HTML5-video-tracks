@@ -1,22 +1,51 @@
+
+body {
+    font-family: arial;
+}
+
 video {
     width: 640px;
     height: 370px;
 }
 
-
 .videoWrap {
     position: relative;
+    float: left;
+}
+
+.advertBanner  {
+    max-width: 640px;
+}
+
+.advertBanner img {
+    width: 100%;
+}
+
+#advertWrap {
+    float: left;
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 5px;
+    display: block;
+    width: 300px;
+    min-height: 350px;
 }
 
 .subWrap {
     position: absolute;
-    bottom: 100px;
-
+    bottom: 35px;
 }
 
 .subtitle {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin: 10px;
+    padding: 0 3px 3px 3px;
     color: white;
     font-size: 20px;
+}
+
+.subtitle span {
+    color: #FFF;
+    float: right;
+    font-size: 10px;
 }
