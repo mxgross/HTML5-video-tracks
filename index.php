@@ -8,7 +8,7 @@ and open the template in the editor.
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+        <script src="js/functions.js"></script>
 
         <link href="style/global.css" rel="stylesheet"/> 
 
@@ -22,13 +22,13 @@ and open the template in the editor.
                 <track id="sptrack" label="Spanish subtitles" kind="captions" src="track/es.vtt" srclang="es">
                 HTML5 Video not supported 
             </video>
-
+            
             <div class="subWrap">
 
             </div>
         </div>
 
         <div id="display"></div>
-        <script src="js/functions.js"></script>
+
     </body>
 </html>
