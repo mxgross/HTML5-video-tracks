@@ -1,58 +1,32 @@
+var videoElement = document.querySelector("video");
+var textTrack = videoElement.textTracks[0]; // there's only one!
 
-function debug(text) {
-    console.log(text);
+var data = $(".subWrap");
+textTrack.oncuechange = function() {
+    // "this" is a textTrack
+    var cue = this.activeCues[0]; // assuming there is only one active cue
+    if (!!cue) {
+        cue = this.activeCues[0];
+
+        showSubtitle(cue);
+
+        cue.onenter = function() {
+            console.log("onenter");
+        };
+
+        cue.onexit = function() {
+            console.log("onexit");
+            removeSubtitle();
+        };
+    }
+
+};
+
+function showSubtitle(cue) {
+    console.log('Showing "' + cue.id + '"...');
+    $('.subWrap').append('<div class="subtitle ' + cue.id + '">' + cue.text + '</div>');
 }
 
-$(window).load(function() {
-
-    var videoElement = $("video")[0];
-    var textTracks = videoElement.textTracks; // one for each track element
-    var textTrack = textTracks[0]; // corresponds to the first track element
-    var kind = textTrack.kind; // e.g. "subtitles"
-    var mode = textTrack.mode; // e.g. "disabled", hidden" or "showing"
-    var cues = textTrack.cues;
-    var cue = cues[0]; // corresponds to the first cue in a track src file
-    var cueId = cue.id; // cue.id corresponds to the cue id set in the WebVTT file
-    var cueText = cue.text; // "The Web is always changing", for example (or some JSON!)
-
-// Loop each textTrack e.g. subtitle de, subtitle es, ...´
-    for (i = 0; i < textTracks.length; i++) {
-        debug("TRACKS: ");
-        debug(textTracks[i]);
-
-        debug("CUES: ");
-        if (textTracks[i].cues !== null) {
-            for (var j = 0; j < textTracks[i].cues.length; j++) {
-                cue = textTracks[i].cues[j];
-                debug(cue);
-            }
-        }
-
-        debug('___________________________');
-    }
-    debug("There were " + i + " tracks found.");
-
-    function onenter() {
-        debug("ENTERED: '" + cue.id + "' : " + cue.text);
-        $('.subWrap').append('<div class="subtitle" style="display: none">' + cue.text + '</div>');
-        $('.subtitle').fadeIn('slow');
-    }
-
-    function onexit() {
-        debug("EXIT: " + cue.id);
-        $('.subtitle').fadeOut('slow');
-        $('.subtitle').remove();
-    }
-
-    cue.onenter = function() {
-        onenter();
-    };
-    cue.onexit = function() {
-        onexit();
-    };
-
-});
-
-
-
-
+function removeSubtitle() {
+    $('.subtitle').remove();
+}
