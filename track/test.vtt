@@ -1,0 +1,19 @@
+WEBVTT FILE
+
+Greeting
+00:00:00.200 --> 00:00:02.000
+Hallo
+
+Car and a image
+00:00:03.000 --> 00:00:05.000
+Oh ein <b>Auto</b>...
+<img src="http://www.netbiscuits.com/~/media/Images/Logos/netbiscuits_logo_4_180x26.gif" />
+
+iframe test
+00:00:06.000 --> 00:00:15.000
+Google Map
+<iframe width="150" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=kaiserslautern&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=57.553742,79.013672&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Kaiserslautern,+Rheinland-Pfalz,+Deutschland&amp;ll=49.440066,7.749126&amp;spn=0.023412,0.038581&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=kaiserslautern&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=57.553742,79.013672&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Kaiserslautern,+Rheinland-Pfalz,+Deutschland&amp;ll=49.440066,7.749126&amp;spn=0.023412,0.038581&amp;z=14" style="color:#0000FF;text-align:left">
+
+Good by
+00:00:16.000 --> 00:00:19.000
+The End
