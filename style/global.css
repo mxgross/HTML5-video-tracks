@@ -3,6 +3,10 @@ body {
     font-family: arial;
 }
 
+.clear {
+    clear: both;
+}
+
 video {
     width: 640px;
     height: 370px;
@@ -54,4 +58,31 @@ video {
     color: #FFF;
     float: right;
     font-size: 10px;
+}
+
+#duration {
+    background-color: rgba(0, 0, 0, 0.5);
+    float: right;
+    padding: 5px 10px;
+}
+
+#skipLink {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#skipLink:hover {
+    text-decoration: underline;
+}
+
+
+#timeInfo {
+    color: orangered;
+    text-align: right;
+}
+
+#timeInfo span {
+    color: #FFF;
+    text-align: left;
 }

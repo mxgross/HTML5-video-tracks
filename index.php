@@ -16,7 +16,7 @@ and open the template in the editor.
         <div id="container">
             <div class="videoWrap">
 
-                <video id="video1" autoplay>
+                <video id="video1" autoplay controls>
                     <source src="video/html5_video.mp4" />
                     <!-- The German text track is used by default -->
                     <track label="German subtitles" mode="hidden" kind="subtitles" srclang="de" src="track/test.vtt" default />
@@ -29,8 +29,10 @@ and open the template in the editor.
             </div>
 
             <div id="advertWrap">
-
+                <div>Advertising:</div>
             </div>
+            
+            <div class="clear"></div>
 
             <div id="display"></div>
 

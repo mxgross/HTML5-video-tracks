@@ -3,8 +3,9 @@ var textTrack = videoElement.textTracks[0]; // there's only one!
 var data = $(".subWrap");
 
 var showInVideoClip = true;
+var skipLinkshown = false;
 
-videoElement.muted = true;
+//videoElement.muted = true;
 
 
 textTrack.oncuechange = function() {
@@ -37,28 +38,61 @@ function showSubtitle(cue) {
     } else if (cue.id === 'externAd') {
         $('#advertWrap').append('<div class="externAd ' + cue.id + '">' + cue.text + '</div>');
     } else if (cue.id === 'inVideoClip' && showInVideoClip) {
-        
+
         showInVideoClip = !showInVideoClip;
-        
+
         var oldSrc = $('video > source').attr('src');
         var track = $('video > track');
         track.remove();
 
+        $('video')[0].removeAttribute("controls");
         $('video')[0].pause();
-        $('video > source').attr('src', cue.text); 
+        $('video > source').attr('src', cue.text);
         $('video')[0].load();
         $('video')[0].play();
-        $('video')[0].addEventListener('ended', function() {
-            console.log("ad clip finished");
-            // start the video
-            $('video > source').attr('src', oldSrc);
-            $('video').append(track);
-            $('video')[0].currentTime = 1;
-            $('video')[0].setAttribute("controls","controls");
-            $('video')[0].load();
-            $('video')[0].play();
+
+        $('.subWrap').append('<div id="duration"> <div id="skipLink" style="display:none">Skip advertising?</div> <div id="timeInfo"></div> </div>');
+
+        var currentTime = 0, duration = 0;
+        function getDuration() {
+            currentTime = (videoElement.currentTime).toFixed(0);
+
+            duration = (videoElement.duration).toFixed(0);
+
+            $('#timeInfo').html('<span>Ad</span> ' + currentTime + '/' + duration);
+
+            if (currentTime > 5 && !skipLinkshown) {
+                skipLinkshown = !skipLinkshown;
+                $('#skipLink').show();
+            }
+        }
+
+        setInterval(getDuration, 1000);
+
+        $('#skipLink').click(function() {
+            console.log('user skipped video ad');
+            $('video')[0].currentTime = duration;
         });
 
+
+        $('video')[0].addEventListener('ended', function() {
+            console.log("ad clip finished");
+            $('#duration').remove();
+
+            // start the video
+
+            $('video')[0].addEventListener('loadedmetadata', function() {
+                this.currentTime = 0.1;
+            }, false);
+
+            //$('video').append(track);
+            $('video > source').attr('src', oldSrc);
+            $('video')[0].setAttribute("controls", "controls");
+            $('video')[0].load();
+        });
+
+    } else {
+        console.log("Unknown cue.id given in your .vtt file?");
     }
 
     $('.subtitle').find('span').click(function() {
@@ -77,6 +111,7 @@ function removeSubtitle() {
 
 $(document).ready(function() {
 
-
 });
+
+
 
