@@ -15,8 +15,9 @@ and open the template in the editor.
     <body>
         <div id="container">
             <div class="videoWrap">
-                <video id="video1" controls>
-                    <source src="video/html5_video.mp4" muted="true">
+
+                <video id="video1" autoplay>
+                    <source src="video/html5_video.mp4" />
                     <!-- The German text track is used by default -->
                     <track label="German subtitles" mode="hidden" kind="subtitles" srclang="de" src="track/test.vtt" default />
                     HTML5 Video not supported 
@@ -26,9 +27,9 @@ and open the template in the editor.
 
                 </div>
             </div>
-            
+
             <div id="advertWrap">
-                
+
             </div>
 
             <div id="display"></div>

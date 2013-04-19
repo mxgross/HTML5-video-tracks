@@ -1,19 +1,19 @@
 WEBVTT FILE
 
+inVideoClip
+00:00:00.000 --> 00:00:00.000
+video/ad/vodafone.mp4
+
 inVideoAd
-00:00:00.500 --> 00:00:04.000
+00:00:06.500 --> 00:00:10.000
 <div class="advertBanner">
 <a href="http://www.bmw.de" target="_blank"><img src="images/bmw_ads.jpg" /></a>
 </div>
 
 externAd
-00:00:05.000 --> 00:00:07.000
+00:00:11.000 --> 00:00:13.000
 <img src="http://www.netbiscuits.com/~/media/Images/Logos/netbiscuits_logo_4_180x26.gif" />
 
 externAd
-00:00:09.000 --> 00:00:15.000
-<div class=""><p>Global leader in mobile web</p></div>
-
-videoOverlay
 00:00:16.000 --> 00:00:19.000
-End
+<div>This is a Opel Corsa <img width="280px;" src="http://upload.wikimedia.org/wikipedia/commons/2/2c/Opel_Corsa_C_front.jpg" /></div>

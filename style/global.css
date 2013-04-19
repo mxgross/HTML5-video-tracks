@@ -13,6 +13,12 @@ video {
     float: left;
 }
 
+#adVideo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
 .advertBanner  {
     max-width: 640px;
 }
