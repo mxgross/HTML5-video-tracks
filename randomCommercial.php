@@ -43,6 +43,17 @@ and open the template in the editor.
                 text-decoration: underline;
             }
 
+            .statusbar {
+                position: absolute;
+                display: block;
+                height: 5px;
+                background-color: orangered;
+                bottom: 3px;
+                right: 0;
+                border: 1px solid white;
+                text-align: center;
+            }
+
 
         </style>
 
@@ -71,11 +82,13 @@ and open the template in the editor.
             $controls = 'controls';
 
             echo 'Random number: ' . $randomNbr . ' so you will get the clip without ad ;) ';
+            echo '<script>var commercialActive = false;</script>';
         } else {
             $randomCommercialSrc = ($files[$randomNbr]);
             $controls = '';
 
             echo 'Random number: ' . $randomNbr . ' so "' . $files[$randomNbr] . '" will be played.';
+            echo '<script>var commercialActive = true;</script>';
         }
         ?>
 
@@ -98,6 +111,7 @@ and open the template in the editor.
                 <?php
                 if (isset($randomCommercialSrc)) {
                     // show a skip link
+                    echo '<div class="statusbar"></div>';
                     echo '<div class="skipCommercial">Skip commercial</div>';
                 } else {
                     // show controls of main video
@@ -126,10 +140,32 @@ and open the template in the editor.
                 });
 
                 function commercialEnded() {
+                    commercialActive = false;
                     $('#commercial').remove();
                     $('video')[0].play();
                     $('video')[0].setAttribute("controls", "controls");
                     $('.skipCommercial').remove();
+                     $('.statusbar').remove();
+                }
+
+                video = $('#commercial')[0];
+                var currentTime = 0, duration = 0;
+                function getDuration() {
+                    currentTime = (video.currentTime);
+                    duration = (video.duration);
+                    percentage = (currentTime / duration) * 100;
+                    percentage;
+                    $('.skipLink').html(percentage);
+
+                    drawStatusBar(percentage);
+
+                }
+                setInterval(getDuration, 100);
+
+
+                function drawStatusBar(percentage) {
+                    var width = 100 - percentage;
+                    $('.statusbar').width(width + '%');
                 }
 
             </script>
