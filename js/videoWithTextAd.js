@@ -14,13 +14,6 @@ textTrack.oncuechange = function() {
     if (!!cue) {
         cue = this.activeCues[0];
         showSubtitle(cue);
-        cue.onenter = function() {
-            //console.log("onenter");
-        };
-
-        cue.onenter = function() {
-            console.log("onenter");
-        };
 
         cue.onexit = function() {
             console.log("onexit");
@@ -35,7 +28,7 @@ function showSubtitle(cue) {
     if (cue.id === 'inVideoAd') {
         $('.subWrap').append('<div class="subtitle ' + cue.id + '"><span>close</span>' + cue.text + '</div>');
 
-    } else if (cue.id === 'externAd') {
+    } else if (cue.id === 'borderAd') {
         $('#advertWrap').append('<div class="externAd ' + cue.id + '">' + cue.text + '</div>');
     } else if (cue.id === 'inVideoClip' && showInVideoClip) {
 

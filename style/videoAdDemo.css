@@ -1,0 +1,50 @@
+/* 
+    Document   : videoAdDemo
+    Created on : 19.04.2013, 14:19:14
+    Author     : mgross
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    font-family: arial;
+}
+
+.clear {
+    clear: both;
+}
+
+.videoWrap {
+    position: relative;
+}
+
+video {
+    width: 640px;
+    height: 370px;
+}
+
+.inVideoAdWrap {
+    width: 640px;
+    height: 330px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.skipCommercial {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px 10px 5px 20px;
+}
+
+#skipLink {
+    display: none;
+}
+
+#skipLink:hover {
+    color: orangered;
+    text-decoration: underline;
+}
