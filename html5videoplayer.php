@@ -156,12 +156,18 @@
             </div>
 
         </div>
+        <div class="clear"></div>
+        <br>
+        <button onclick="history.back();">back</button>
 
         <script>
 
             var video = $('video')[0];
 
             //GLOBALS
+
+            video.volume = 0.7;
+            getVolume(video);
 
             // Listener
             $('.playPauseButton').click(function() {
@@ -217,7 +223,6 @@
                 var statusVal = (video.currentTime / video.duration * 100);
                 $('.statusbar').width(statusVal + '%');
                 $('.timeText').text(video.currentTime.toFixed(0) + ' / ' + video.duration.toFixed(0));
-                getVolume(video);
             }
             setInterval(drawStatusBar, 100);
 
@@ -231,27 +236,31 @@
             $(".timeline").mousemove(function(event) {
                 x = event.pageX - $(this)[0].offsetLeft;
                 $(this).find('.hoverDiv').css({'left': +x + 'px'});
-
-                $(this).click(function() {
-                    curserPositionInPercent = x / $(this).width();
-                    video = $(this).parent().parent().find('video')[0];
-                    newTime = (curserPositionInPercent) * video.duration;
-                    video.currentTime = newTime;
-                });
-
             });
 
-            // renders the volume cursor
-            $(".volume").mousemove(function(event) {
+            $(".timeline").click(function() {
+                curserPositionInPercent = x / $(this).width();
+                video = $(this).parent().parent().find('video')[0];
+                newTime = (curserPositionInPercent) * video.duration;
+                video.currentTime = newTime;
+            });
 
+            // renders the volume cursor 
+            $(".volume").mousemove(function(event) {
                 x = event.pageX - $(this)[0].offsetLeft;
                 $(this).find('.hoverDiv').css({'left': +x + 'px'});
+            });
 
-                $(this).click(function() {
-                    video = $(this).parent().parent().find('video')[0];
-                    video.volume = (x / $(this).width());
-                });
 
+            $('.volume').click(function() {
+                video = $(this).parent().parent().find('video')[0];
+                ev = window.event;
+                x = ev.clientX - this.offsetLeft;
+                x = x / $(this).width();
+                video.volume = x;
+
+                $(this).find('.hoverDiv').css({'left': +x * 100 + '%'});
+                getVolume(video);
             });
 
 

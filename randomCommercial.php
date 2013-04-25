@@ -37,10 +37,9 @@ and open the template in the editor.
                 bottom: 30px;
                 left: 0;
                 padding: 5px 20px;
-                background-color: rgba(0, 0, 0, 0.6);
-                color: white;
+                background-color: rgba(255, 255, 255, 0.6);
+                color: #000;
                 font-family: Arial;
-                border: 1px dotted gray;
             }
 
             .skipCommercial:hover {
