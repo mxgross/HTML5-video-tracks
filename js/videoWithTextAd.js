@@ -24,6 +24,10 @@ textTrack.oncuechange = function() {
 };
 function showSubtitle(cue) {
     console.log('Showing "' + cue.id + '"...');
+    
+    console.log(cue);
+    var oldText = '';//$('textarea').val();
+    $('.textareaOne').val( oldText + cue.text);
 
     if (cue.id === 'inVideoAd') {
         $('.subWrap').append('<div class="subtitle ' + cue.id + '"><span>close</span>' + cue.text + '</div>');
@@ -78,7 +82,6 @@ function showSubtitle(cue) {
                 this.currentTime = 0.1;
             }, false);
 
-            //$('video').append(track);
             $('video > source').attr('src', oldSrc);
             $('video')[0].setAttribute("controls", "controls");
             $('video')[0].load();

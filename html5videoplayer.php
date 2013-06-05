@@ -141,7 +141,7 @@
 
             <div class="videoWrap">
                 <video>
-                    <source src="video/html5_video.mp4" type="video/mp4"/>
+                    <source src="video/html5_video.mp4" type="video/mp4" />
                 </video>
                 <div class="controls">
                     <span class="playPauseButton"><!--PLAY--></span>

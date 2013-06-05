@@ -31,14 +31,33 @@ and open the template in the editor.
             <div id="advertWrap">
                 <div>Advertising:</div>
             </div>
-            
+
             <div class="clear"></div>
+            <h2>Current text track content:</h2>
+            <textarea class="textareaOne" style="width: 950px; height: 70px"></textarea>
 
             <div id="display"></div>
 
             <script src="js/videoWithTextAd.js"></script>
         </div>
-        
-        <button onclick="history.back();">back</button>
+
+        <h2>Complete WEBVTT file content:</h2>
+        <textarea style="width: 950px; height: 300px">
+WEBVTT FILE
+
+inVideoAd
+00:00:02.000 --> 00:00:08.000
+<div class="advertBanner">
+<a href="http://www.bmw.de" target="_blank"><img src="images/bmw_ads.jpg" /></a>
+</div>
+
+borderAd
+00:00:10.000 --> 00:00:13.000
+<img src="http://www.netbiscuits.com/~/media/Images/Logos/netbiscuits_logo_4_180x26.gif" />
+
+borderAd
+00:00:16.000 --> 00:00:19.000
+<div>This is a Opel Corsa <img width="280px;" src="http://upload.wikimedia.org/wikipedia/commons/2/2c/Opel_Corsa_C_front.jpg" /></div>
+        </textarea>
     </body>
 </html>
